@@ -1,0 +1,62 @@
+.navbar-brand {
+    font-weight: 700;
+}
+
+.first-row {
+    height: 23vh
+}
+
+.img-section {
+    height: 50vh;
+}
+
+.promo-text-title {
+    font-size: 5vw;
+    font-weight: 900;
+}
+
+.option {
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+} 
+
+.option .option-title { 
+   background:#fff; 
+   padding:0 10px; 
+}
+
+.option {
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+} 
+
+.option span { 
+   background:#fff; 
+   padding:0 10px; 
+}
+
+.social-media-links {
+  color: black;
+}
+
+.sidebar {
+  border-right: 1px solid black
+}
+
+.app {
+  font-weight: 900;
+}
+
+.dash-item {
+  cursor: pointer;
+}
+
+.main {
+  background-color: skyblue;
+}

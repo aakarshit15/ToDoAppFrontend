@@ -1,0 +1,23 @@
+.toggleMode {
+  background-color: white;
+}
+
+.darkMode {
+  color: white;
+}
+
+.lessOpacity {
+  opacity: 0.8;
+}
+
+.blackLikeBG {
+  background-color: rgb(68, 68, 68);
+}
+
+.bodyBlackBG {
+  background-color: rgb(25, 18, 18);
+}
+
+.toggleSignBtn {
+  cursor: pointer;
+}
