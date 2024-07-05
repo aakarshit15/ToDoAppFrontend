@@ -1,10 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Template from './components/Templates/Template.jsx';
-import RegisterForm from './components/Forms/RegisterForm.jsx'
 import LandingPage from './components/LandingPage.jsx'
 import Dashboard from './components/Dashboard.jsx'
 import Navbar from './components/Navbar.jsx'
