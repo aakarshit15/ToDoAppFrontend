@@ -8,18 +8,18 @@ import Footer from './Footer.jsx';
 
 const LandingPage = (props) => {
 
-  const [sign, setSign] = useState("up");
+  // const [sign, setSign] = useState("up");
 
-  const toggleSign = () => {
-    setSign(sign === "up" ? "in" : "up");
-  }
+  // const toggleSign = () => {
+  //   setSign(sign === "up" ? "in" : "up");
+  // }
 
   return (
     <>
       <Header mode={props.mode} />
       <Features mode={props.mode} />
       <Review mode={props.mode} />
-      <Sign sign={sign} toggleSign={toggleSign} mode={props.mode} />
+      <Sign changeUser={props.changeUser} usernameChecks={props.usernameChecks} sign={props.sign} toggleSign={props.toggleSign} mode={props.mode} />
       <Footer mode={props.mode} />
     </>
   );

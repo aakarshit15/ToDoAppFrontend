@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from './Input'
 
 const Form = (props) => {
+
+    const [formData, setFormData] = useState({});
+
+    const changeFormData = (event) => {
+        setFormData({...formData, [event.target.name]: event.target.value});
+    }
+
+    const checkPasswords = () => {
+        if(formData.password1 != formData.password2) {
+            return true;
+        }
+    }
+
+    // useEffect(checkPasswords, [formData]);
 
     const signUpFields = (sign) => {
         if(sign === "up") {
             return (
                 <>
-                    <Input mode={props.mode} type="text" id="floatingName" name="name" label="Name" />
+                    <Input changeFormData={changeFormData} mode={props.mode} type="text" id="floatingName" name="name" label="Name" />
                 </>
             );
         }
@@ -21,18 +35,28 @@ const Form = (props) => {
         }
     }
 
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        console.log("handling sign up");
+        props.changeUser(formData);
+    }
+    
+    const handleSignIn = () => {
+
+    }
+
     const passwordFields = (sign) => {
         if(sign === "up") {
             return (
                 <>
-                    <Input mode={props.mode} type="password" id="floatingPassword1" name="password" label="Password" />
-                    <Input msg="Passwords don't matched!!!" mode={props.mode} type="password" id="floatingPassword2" name="password" label="Password" />
+                    <Input changeFormData={changeFormData} mode={props.mode} type="password" id="floatingPassword1" name="password1" label="Password" />
+                    <Input changeFormData={changeFormData} err={checkPasswords()} msg="Passwords don't matched!!!" mode={props.mode} type="password" id="floatingPassword2" name="password2" label="Password" />
                 </>
             );
         } else {
             return (
                 <>
-                    <Input mode={props.mode} type="password" id="floatingPassword" name="password" label="Password" />
+                    <Input changeFormData={changeFormData} mode={props.mode} type="password" id="floatingPassword" name="password" label="Password" />
                 </>
             );
         }
@@ -43,14 +67,14 @@ const Form = (props) => {
             <form className={`p-4 p-md-5 border rounded-3 ${props.mode === "dark" ? "bg-dark": "bg-body-tertiary"}`}>
                 <h1 className={`mb-3 text-center ${props.mode === "dark" && "darkMode"}`}>Sign {props.sign} Form</h1>
                 {signUpFields(props.sign)}
-                <Input msg="Username Already Exists!!!" mode={props.mode} type="text" id="floatingUsername" name="username" label="Username" />
+                <Input err={props.usernameChecks} changeFormData={changeFormData} msg="Username Already Exists!!!" mode={props.mode} type="text" id="floatingUsername" name="username" label="Username" />
                 {passwordFields(props.sign)}
                 {/* <div className="checkbox mb-3">
                     <label className={`${props.mode==="dark" && "darkMode"}`}>
                     <input type="checkbox" value="remember-me" /> Remember me
                     </label>
                 </div> */}
-                <button className={`w-100 btn btn-lg btn-${props.mode}`} type="submit">Sign {props.sign}</button>
+                <button onClick={props.sign === "up" ? handleSignUp : handleSignIn} className={`w-100 btn btn-lg btn-${props.mode}`} type="submit">Sign {props.sign}</button>
                 <div className={`text-center my-2 ${props.mode==="dark" && "darkMode"}`}>OR</div>
                 <button className={`w-100 btn btn-lg btn-${props.mode} d-flex gap-2 justify-content-center aling-items-center`} type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-google align-self-center" viewBox="0 0 16 16">
