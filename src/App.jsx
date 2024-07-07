@@ -24,16 +24,6 @@ function App() {
   const changeUser = async (newUser) => {
     console.log("User is changing");
     setUser(newUser);
-    if(user) {
-      const response = await axios.post('/api/register', user);
-      console.log(response.data.registrationSuccessful);
-      if(response.data.registrationSuccessful) {
-        setUsernameChecks(false);
-        toggleSign();
-      } else {
-        setUsernameChecks(true);
-      }
-    }
   }
 
   const mainRender = (user) => {
@@ -46,29 +36,15 @@ function App() {
 
   useEffect(() => {
     async () => {
-      const response = await axios.get('/api/dashboard');
-      setUser(response.data);
+      try {
+        const response = await axios.post('/api/login');
+        console.log(response.data);
+        setUser(response.data);
+      } catch (err) {
+        console.error("Error sending post login request", err);
+      }
     }
   });
-
-  // async function registerPost() {
-  //   if(user) {
-  //     const response = await axios.post('/api/register', user);
-  //     console.log(response.data.registrationSuccessful);
-  //     if(response.data.registrationSuccessful) {
-  //       setUsernameChecks(false);
-  //       toggleSign();
-  //     } else {
-  //       setUsernameChecks(true);
-  //     }
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   async () => {
-  //     await registerPost()
-  //   }
-  // }, [user]);
 
   useEffect(() => {
     document.body.style.backgroundColor = (mode==="dark" ? "black" : null);

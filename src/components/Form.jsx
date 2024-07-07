@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Input from './Input'
+import axios from 'axios';
 
 const Form = (props) => {
 
@@ -35,14 +36,26 @@ const Form = (props) => {
         }
     }
 
-    const handleSignUp = (event) => {
+    const handleSignUp = async (event) => {
         event.preventDefault();
         console.log("handling sign up");
-        props.changeUser(formData);
+        const response = await axios.post('/api/register', formData);
+        if(response.data.registerationSuccessful) {
+            props.toggleSign();
+        } else {
+            window.alert("Sign Up Unsuccessful!!!");
+        }
     }
     
-    const handleSignIn = () => {
-
+    const handleSignIn = async (event) => {
+        event.preventDefault()
+        console.log("handling sing in");
+        const response = await axios.post('/api/login', formData);
+        if(response.data.isAuthenticated) {
+            props.changeUser(response.data);
+        } else {
+            window.alert("Sign In Unsuccessful!!!");
+        }
     }
 
     const passwordFields = (sign) => {
