@@ -56,8 +56,7 @@ const Form = (props) => {
         if(response.data.isAuthenticated) {
             props.changeUser(response.data);
         } else {
-            window.alert("Sign In Unsuccessful!!!");
-            
+            window.alert("Sign In Unsuccessful!!!" + "\n" + "USERNAME OR PASSWORD INCORRECT!!!");
         }
     }
 
