@@ -19,7 +19,7 @@ const LandingPage = (props) => {
       <Header mode={props.mode} />
       <Features mode={props.mode} />
       <Review mode={props.mode} />
-      <Sign changeUser={props.changeUser} usernameChecks={props.usernameChecks} sign={props.sign} toggleSign={props.toggleSign} mode={props.mode} />
+      <Sign changeUser={props.changeUser} sign={props.sign} toggleSign={props.toggleSign} mode={props.mode} />
       <Footer mode={props.mode} />
     </>
   );

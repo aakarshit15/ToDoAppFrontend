@@ -10,7 +10,6 @@ function App() {
   const [mode, setMode] = useState("light");
   const [user, setUser] = useState(false);
   const [sign, setSign] = useState("up");
-  const [usernameChecks, setUsernameChecks] = useState(false);
 
   const toggleSign = () => {
     setSign(sign === "up" ? "in" : "up");
@@ -21,30 +20,35 @@ function App() {
     event.preventDefault();
   }
 
-  const changeUser = async (newUser) => {
-    console.log("User is changing");
-    setUser(newUser);
+  const changeUser = (newUser) => {
+    setUser(newUser);    
+  }
+
+  const changeUsernameChecks = (newUsernameErr) => {
+    setUsernameChecks(newUsernameErr);
   }
 
   const mainRender = (user) => {
     if(user.isAuthenticated) {
-      return (<><Dashboard mode={mode} name={user.name} /></>);
+      return (<><Dashboard mode={mode} name={user.name} changeUser={changeUser} /></>);
     } else {
-      return (<><LandingPage changeUser={changeUser} usernameChecks={usernameChecks} toggleSign={toggleSign} sign={sign} mode={mode} /></>);
+      return (<><LandingPage changeUser={changeUser} toggleSign={toggleSign} sign={sign} mode={mode} /></>);
     }
   }
 
   useEffect(() => {
-    async () => {
+
+    const getDashboard = async () => {
       try {
-        const response = await axios.post('/api/login');
-        console.log(response.data);
+        const response = await axios.get('/api/dashboard');
         setUser(response.data);
       } catch (err) {
         console.error("Error sending post login request", err);
       }
     }
-  });
+
+    getDashboard();
+  }, []);
 
   useEffect(() => {
     document.body.style.backgroundColor = (mode==="dark" ? "black" : null);
