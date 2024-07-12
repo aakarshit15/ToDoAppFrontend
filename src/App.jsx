@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
 import LandingPage from './components/LandingPage.jsx'
-import Dashboard from './components/Dashboard.jsx'
-import Navbar from './components/Navbar.jsx'
 import axios from 'axios';
 import './App.css';
+import Workspace from './components/Workspace.jsx';
+import AuthorizedRoute from './components/AuthorizedRoute.jsx';
+import UnAuthorizedRoute from './components/UnAuthorizedRoute.jsx';
+import { Router, useNavigate, Navigate } from 'react-router-dom';
 
 function App() {
 
   const [mode, setMode] = useState("light");
   const [user, setUser] = useState(false);
   const [sign, setSign] = useState("up");
+  const [userLayout, setUserLayout] = useState("dashboard");
 
   const toggleSign = () => {
     setSign(sign === "up" ? "in" : "up");
@@ -20,19 +23,19 @@ function App() {
     event.preventDefault();
   }
 
+  const changeUserLayout = (newUserLayout) => {
+    setUserLayout(newUserLayout);
+  }
+
   const changeUser = (newUser) => {
     setUser(newUser);    
   }
 
-  const changeUsernameChecks = (newUsernameErr) => {
-    setUsernameChecks(newUsernameErr);
-  }
-
   const mainRender = (user) => {
-    if(user.isAuthenticated) {
-      return (<><Dashboard mode={mode} name={user.name} changeUser={changeUser} /></>);
+    if(user && user.isAuthenticated) {
+      return (<><AuthorizedRoute changeUserLayout={changeUserLayout} mode={mode} toggleMode={toggleMode} user={user} changeUser={changeUser} sign={sign} toggleSign={toggleSign} /><Navigate to={`/user/${userLayout}`} replace /></>);
     } else {
-      return (<><LandingPage changeUser={changeUser} toggleSign={toggleSign} sign={sign} mode={mode} /></>);
+      return (<><UnAuthorizedRoute mode={mode} toggleMode={toggleMode} user={user} changeUser={changeUser} sign={sign} toggleSign={toggleSign} /><Navigate to="/home" replace /></>);
     }
   }
 
@@ -56,7 +59,6 @@ function App() {
 
   return (
     <>
-      <Navbar mode={mode} toggleMode={toggleMode} />
       {mainRender(user)}
     </>
   )

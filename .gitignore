@@ -32,3 +32,9 @@ dist-ssr
 
 #static files
 static/
+
+#enviroment variables
+src/components/.env
+
+#not tested components
+src/components/GoogleOneTap.jsx

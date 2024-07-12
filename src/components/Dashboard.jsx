@@ -11,7 +11,7 @@ const Dashboard = (props) => {
 
   return (
     <>
-        <h1 className={`${props.mode === "dark" && "darkMode"}`}>Hello {props.name}</h1>
+        <h1 className={`${props.mode === "dark" && "darkMode"}`}>Hello {props.user.name}</h1>
         <button onClick={handleLogOut}>Log out</button>
     </>
   )

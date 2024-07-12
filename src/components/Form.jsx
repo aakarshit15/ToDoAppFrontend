@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Input from './Input'
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Form = (props) => {
 
@@ -52,6 +53,7 @@ const Form = (props) => {
     
     const handleSignIn = async (event) => {
         event.preventDefault()
+        console.log("handling sign in");
         const response = await axios.post('/api/login', formData);
         if(response.data.isAuthenticated) {
             props.changeUser(response.data);
@@ -81,16 +83,6 @@ const Form = (props) => {
         event.preventDefault();
         window.open('/api/auth/google', '_self');
     }
-
-    // $('#myForm')
-    // .ajaxForm({
-    //     url : '/api/auth/google', // or whatever
-    //     type: 'post',
-    //     dataType : 'json',
-    //     success : function (response) {
-    //         console.log(response);
-    //     }
-    // });
 
     return (
         <div className="col-md-10 mx-auto col-lg-5">

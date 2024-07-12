@@ -7,13 +7,6 @@ import Sign from './Sign.jsx';
 import Footer from './Footer.jsx';
 
 const LandingPage = (props) => {
-
-  // const [sign, setSign] = useState("up");
-
-  // const toggleSign = () => {
-  //   setSign(sign === "up" ? "in" : "up");
-  // }
-
   return (
     <>
       <Header mode={props.mode} />
