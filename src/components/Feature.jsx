@@ -5,7 +5,7 @@ const Feature = (props) => {
 
   return (
     <div className="col d-flex align-items-start">
-        <div className="icon-square bg-light text-dark flex-shrink-0 me-3 mt-2">
+        <div className={`icon-square bg-light text-dark flex-shrink-0 me-3 mt-2 ${props.mode === "dark" && "btn-dark"}`}>
           <FeatureSVG mode={props.mode} title={props.title} />
         </div>
         <div>

@@ -6,8 +6,8 @@ const Navbar = (props) => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">To-Do App</a>
-          {props.user.isAuthenticated ? <AuthNavComps changeUserLayout={props.changeUserLayout} toggleMode={props.toggleMode} /> : <ModeToggler toggleMode={props.toggleMode} />}
+          <a className="navbar-brand" href="#">{props.user && props.user.isAuthenticated ? props.user.name : "To-Do App"}</a>
+          {props.user.isAuthenticated ? <AuthNavComps mode={props.mode} changeUserLayout={props.changeUserLayout} toggleMode={props.toggleMode} /> : <ModeToggler mode={props.mode} toggleMode={props.toggleMode} />}
         </div>
     </nav>
   );

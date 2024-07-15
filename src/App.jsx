@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import LandingPage from './components/LandingPage.jsx'
 import axios from 'axios';
 import './App.css';
-import Workspace from './components/Workspace.jsx';
 import AuthorizedRoute from './components/AuthorizedRoute.jsx';
 import UnAuthorizedRoute from './components/UnAuthorizedRoute.jsx';
-import { Router, useNavigate, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function App() {
 

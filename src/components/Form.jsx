@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const Form = (props) => {
 
-    const [formData, setFormData] = useState({name: "", username:"", password1:"", password2:"", password:""});
+    const [formData, setFormData] = useState({name: "", email:"", username:"", password1:"", password2:"", password:""});
     const [usernameErr, setUsernameErr] = useState(false);
 
     const changeFormData = (event) => {
@@ -23,6 +23,7 @@ const Form = (props) => {
             return (
                 <>
                     <Input inputValue={formData.name} changeFormData={changeFormData} mode={props.mode} type="text" id="floatingName" name="name" label="Name" />
+                    <Input inputValue={formData.email} changeFormData={changeFormData} mode={props.mode} type="email" id="floatingEamil" name="email" label="Email" />
                 </>
             );
         }
@@ -91,12 +92,7 @@ const Form = (props) => {
                 {signUpFields(props.sign)}
                 <Input inputValue={formData.username} err={usernameErr} changeFormData={changeFormData} msg="Username Already Exists!!!" mode={props.mode} type="text" id="floatingUsername" name="username" label="Username" />
                 {passwordFields(props.sign)}
-                {/* <div className="checkbox mb-3">
-                    <label className={`${props.mode==="dark" && "darkMode"}`}>
-                    <input type="checkbox" value="remember-me" /> Remember me
-                    </label>
-                </div> */}
-                <button disabled={checkPasswords()} onClick={props.sign === "up" ? handleSignUp : handleSignIn} className={`w-100 btn btn-lg btn-${props.mode}`} type="submit">Sign {props.sign}</button>
+                <button disabled={props.sign === "up" && checkPasswords()} onClick={props.sign === "up" ? handleSignUp : handleSignIn} className={`w-100 btn btn-lg btn-${props.mode}`} type="submit">Sign {props.sign}</button>
                 <div className={`text-center my-2 ${props.mode==="dark" && "darkMode"}`}>OR</div>
                 <button onClick={googleSignUp} className={`w-100 btn btn-lg btn-${props.mode} d-flex gap-2 justify-content-center aling-items-center`}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-google align-self-center" viewBox="0 0 16 16">
@@ -106,8 +102,6 @@ const Form = (props) => {
                 </button>
                 <p className={`toggleSignBtn mt-4 text-center ${props.mode === "dark" && "darkMode"}`}><u><a onClick={props.toggleSign}>{toggleSignBtnValue(props.sign)}</a></u></p>
             </form>
-            {/* <form id="myForm" action="/api/auth/google" method="POST"> */}
-            {/* </form> */}
         </div>
     );
 }

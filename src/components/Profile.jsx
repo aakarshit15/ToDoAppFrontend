@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <>
-        <h1>This is Profile</h1>
+      <h1 className={`${props.mode === "dark" && "darkMode"}`}>This is Profile</h1>
     </>
   )
 }
