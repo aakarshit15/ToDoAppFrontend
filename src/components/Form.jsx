@@ -54,7 +54,6 @@ const Form = (props) => {
     
     const handleSignIn = async (event) => {
         event.preventDefault()
-        console.log("handling sign in");
         const response = await axios.post('/api/login', formData);
         if(response.data.isAuthenticated) {
             props.changeUser(response.data);

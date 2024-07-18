@@ -1,11 +1,20 @@
+import axios from 'axios'
 import React from 'react'
 
 const Task = (props) => {
+
+  const toggleDone = async () => {
+    const response = await axios.patch("/api/toggleDone", props.task);
+    if(response.data.toggleDoneSuccess) {
+      props.getAllTasks();
+    }
+  }
+
   return (
     <>
-        <label className="list-group-item flex-grow-1 align-self-center h6 m-0">
-            <input className={`form-check-input mt-1 ${!props.renderBtns && "d-none"}`} type="checkbox" value="" defaultChecked={props.done} />
-            <span className={props.task.done && "text-decoration-line-through"}>{props.task.task}</span>
+        <label className="list-group-item flex-grow-1 align-self-center h5 m-0 task-input">
+          <input onChange={() => {toggleDone()}} className={`form-check-input me-2 ${!props.renderBtns && "d-none"}`} type="checkbox" value="" defaultChecked={props.task.done} />
+          <span className={`${props.task.done ? "text-decoration-line-through" : undefined} task-title`}>{props.task.title}</span>
         </label>
     </>
   )

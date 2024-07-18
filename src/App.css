@@ -21,3 +21,36 @@
 .toggleSignBtn {
   cursor: pointer;
 }
+
+.edit-btn, .delete-btn {
+  cursor: pointer;
+}
+
+.form-check-input {
+  margin-top: 3px;
+}
+
+.edit-delete-buttons {
+  gap: 5px;
+}
+
+@media only screen and (max-width: 321px) {
+  .task-input {
+    font-size: 1rem;
+  }
+
+  .edit-btn,.delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+  }
+
+  .edit-svg, .delete-svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+}
+

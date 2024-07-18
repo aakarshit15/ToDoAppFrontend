@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React from 'react'
+import TodaysTasks from './TodaysTasks';
+import TaskListForm from './TaskListForm';
 
 const Dashboard = (props) => {
 
@@ -11,8 +13,8 @@ const Dashboard = (props) => {
 
   return (
     <>
-        <h1 className={`${props.mode === "dark" && "darkMode"}`}>Hello {props.user.name}</h1>
-        <button onClick={handleLogOut}>Log out</button>
+      <TodaysTasks currentDate={props.currentDate} allTasks={props.allTasks} getAllTasks={props.getAllTasks} />
+      <TaskListForm currentDate={props.currentDate} />
     </>
   )
 }
