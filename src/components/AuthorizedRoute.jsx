@@ -7,11 +7,19 @@ import axios from 'axios';
 
 const AuthorizedRoute = (props) => {
 
+  const getNewDate = () => {
+    const todayTimeStamp = new Date();
+    const todayDate = todayTimeStamp.getDate();
+    const todayMonth = (`${todayTimeStamp.getMonth() + 1}`).length === 1 ? `0${todayTimeStamp.getMonth() + 1}` : (todayTimeStamp.getMonth() + 1);
+    const todayYear = todayTimeStamp.getFullYear();
+    return `${todayYear}-${todayMonth}-${todayDate}`;
+  }
+
   const [allTasks, setAllTasks] = useState([]);
-  const [currentDate, setCurrentDate] = useState();
-  
+  const [currentDate, setCurrentDate] = useState(getNewDate());
+
   const changeCurrentDate = () => {
-    setCurrentDate((new Date()).toISOString().split('T')[0]);
+    setCurrentDate(getNewDate());
   }
 
   const getAllTasks = async () => {

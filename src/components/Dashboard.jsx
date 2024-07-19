@@ -14,7 +14,7 @@ const Dashboard = (props) => {
   return (
     <>
       <TodaysTasks currentDate={props.currentDate} allTasks={props.allTasks} getAllTasks={props.getAllTasks} />
-      <TaskListForm currentDate={props.currentDate} />
+      <TaskListForm currentDate={props.currentDate} getAllTasks={props.getAllTasks} />
     </>
   )
 }
