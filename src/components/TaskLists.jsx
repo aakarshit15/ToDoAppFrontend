@@ -27,12 +27,12 @@ const TaskLists = (props) => {
         <>
           {
             requiredTaskLists.map((taskList) => {
-              return (<TaskList getAllTasks={props.getAllTasks} currentDate={props.currentDate} key={taskList.id} taskList={taskList} show={true} />)
+              return (<TaskList getAllTasks={props.getAllTasks} currentDate={props.currentDate} key={taskList.id} taskList={taskList} show={props.show} />)
             })
           }
         </> : 
         <>
-          <TaskListAbsent errMsg="No task list present for today" errSubMsg="Either create a task list or ENJOY🥳" />
+          <TaskListAbsent errMsg={props.errMsg} errSubMsg={props.errSubMsg} />
         </>
       }
     </>

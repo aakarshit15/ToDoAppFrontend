@@ -9,7 +9,7 @@ const TaskList = (props) => {
       <div className="container-md my-4">
         <div className="accordion" id="accordionPanelsStayOpenExample">
           <div className="accordion-item">
-            <TaskListHeader taskList={props.taskList} />
+            <TaskListHeader taskList={props.taskList} show={props.show} />
             <div id={`panelsStayOpen-collapse${props.taskList.id}`} className={`accordion-collapse collapse ${props.show && "show"}`} aria-labelledby="panelsStayOpen-headingOne">
               <TaskListItems getAllTasks={props.getAllTasks} currentDate={props.currentDate} taskList={props.taskList} />
             </div>      

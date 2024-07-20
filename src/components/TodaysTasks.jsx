@@ -6,7 +6,7 @@ const TodaysTasks = (props) => {
   return (
     <>
         <DashboardSectTitle title="Today's Task" />
-        <TaskLists startDate={props.currentDate} getAllTasks={props.getAllTasks} endDate={props.currentDate} currentDate={props.currentDate} allTasks={props.allTasks} />
+        <TaskLists errMsg="No task list present for today" errSubMsg="Either create a task list or ENJOY🥳" startDate={props.currentDate} getAllTasks={props.getAllTasks} endDate={props.currentDate} currentDate={props.currentDate} allTasks={props.allTasks} show={true} />
     </>
   )
 }
