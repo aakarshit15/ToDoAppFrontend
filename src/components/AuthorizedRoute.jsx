@@ -7,10 +7,14 @@ import axios from 'axios';
 
 const AuthorizedRoute = (props) => {
 
+  const addZero = (dataItem) => {
+    return (`${dataItem}`).length === 1 ? `0${dataItem}` : `${dataItem}`;
+  }
+
   const getFullDate = (dateStr) => {
     const d = new Date(dateStr);
-    const dDate = d.getDate();
-    const dMonth = (`${d.getMonth() + 1}`).length === 1 ? `0${d.getMonth() + 1}` : (d.getMonth() + 1);
+    const dDate = addZero(d.getDate());
+    const dMonth = addZero(d.getMonth() + 1);
     const dYear = d.getFullYear();
     return `${dYear}-${dMonth}-${dDate}`
   }
@@ -19,10 +23,10 @@ const AuthorizedRoute = (props) => {
     const todayTimeStamp = new Date();
     return getFullDate(todayTimeStamp);
   }
-
+  
   const getDateDiff = (diff) => {
     const tDate = new Date(currentDate);
-    tDate.setDate(tDate.getDate() + diff);
+    tDate.setDate(tDate.getDate() + parseInt(diff));
     return getFullDate(tDate);
   }
 
