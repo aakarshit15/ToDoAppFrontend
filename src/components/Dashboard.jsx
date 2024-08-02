@@ -14,10 +14,10 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <TodaysTasks currentDate={props.currentDate} allTasks={props.allTasks} getAllTasks={props.getAllTasks} />
-      <TaskListForm currentDate={props.currentDate} getAllTasks={props.getAllTasks} />
-      <OtherTaskLists other="upcoming" currentDate={props.currentDate} getAllTasks={props.getAllTasks} allTasks={props.allTasks} getDateDiff={props.getDateDiff} />
-      <OtherTaskLists other="previous" currentDate={props.currentDate} getAllTasks={props.getAllTasks} allTasks={props.allTasks} getDateDiff={props.getDateDiff} />
+      <TodaysTasks currentDate={props.currentDate} allTasks={props.allTasks} getAllTasks={props.getAllTasks} mode={props.mode} />
+      <TaskListForm mode={props.mode} currentDate={props.currentDate} getAllTasks={props.getAllTasks} />
+      <OtherTaskLists mode={props.mode} other="upcoming" currentDate={props.currentDate} getAllTasks={props.getAllTasks} allTasks={props.allTasks} getDateDiff={props.getDateDiff} />
+      <OtherTaskLists mode={props.mode} other="previous" currentDate={props.currentDate} getAllTasks={props.getAllTasks} allTasks={props.allTasks} getDateDiff={props.getDateDiff} />
     </>
   )
 }

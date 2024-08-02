@@ -10,7 +10,7 @@ const TaskListsTitle = (props) => {
 
   return (
     <>
-        <div className="container-md h5 mt-3 opacity-75">
+        <div className={`container-md h5 mt-3 opacity-75 ${props.mode === "dark" && "text-white"}`}>
             {mainTitle(props.currentTaskLists, props.diff)}
         </div>
     </>

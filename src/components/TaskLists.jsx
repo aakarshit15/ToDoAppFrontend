@@ -27,12 +27,12 @@ const TaskLists = (props) => {
         <>
           {
             requiredTaskLists.map((taskList) => {
-              return (<TaskList getAllTasks={props.getAllTasks} currentDate={props.currentDate} key={taskList.id} taskList={taskList} show={props.show} />)
+              return (<TaskList mode={props.mode} getAllTasks={props.getAllTasks} currentDate={props.currentDate} key={taskList.id} taskList={taskList} show={props.show} />)
             })
           }
         </> : 
         <>
-          <TaskListAbsent errMsg={props.errMsg} errSubMsg={props.errSubMsg} />
+          <TaskListAbsent mode={props.mode} errMsg={props.errMsg} errSubMsg={props.errSubMsg} />
         </>
       }
     </>

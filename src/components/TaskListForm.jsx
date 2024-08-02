@@ -27,7 +27,7 @@ const TaskListForm = (props) => {
   return (
     <>
         <form className="container-md my-5 d-flex flex-column align-items-center">
-            <DateInput taskListFormData={taskListFormData} changeTaskListFormData={changeTaskListFormData} label="Date" name="list_date" min={props.currentDate} />
+            <DateInput mode={props.mode} taskListFormData={taskListFormData} changeTaskListFormData={changeTaskListFormData} label="Date" name="list_date" min={props.currentDate} />
             <button type="submit" onClick={disable ? null : ((event) => {addTaskList(event)})} className={`btn btn-primary mt-2 ${disable && "opacity-75"}`}> + Create Task List</button>
         </form>
     </>

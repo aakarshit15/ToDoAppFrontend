@@ -8,9 +8,9 @@ const OtherTaskListsForm = (props) => {
   return (
   <>
     <div className="my-3 container-md d-flex flex-column flex-md-row justify-content-between align-items-center" style={{gap:"20px"}}>
-        <DaysForm taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} other={props.other} />
-        <Or />
-        <DateForm other={props.other} currentDate={props.currentDate} getDateDiff={props.getDateDiff} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} changeCurrentTaskLists={props.changeCurrentTaskLists} setTaskListFormData={props.setTaskListFormData} />
+        <DaysForm mode={props.mode} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} other={props.other} />
+        <Or mode={props.mode} />
+        <DateForm mode={props.mode} other={props.other} currentDate={props.currentDate} getDateDiff={props.getDateDiff} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} changeCurrentTaskLists={props.changeCurrentTaskLists} setTaskListFormData={props.setTaskListFormData} />
         <ShowTasksBtn taskListFormData={props.taskListFormData} changeCurrentTaskLists={props.changeCurrentTaskLists} />
     </div>
   </>

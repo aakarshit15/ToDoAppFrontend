@@ -30,10 +30,10 @@ const OtherTaskLists = (props) => {
   return (
     <>
         <div className={`${props.other}-tasks my-5`}>
-            <DashboardSectTitle title={`${props.other.charAt(0).toUpperCase() + props.other.slice(1)} Tasks`} />
-            <OtherTaskListsForm other={props.other} taskListFormData={taskListFormData} changeTaskListFormData={changeTaskListFormData} changeCurrentTaskLists={changeCurrentTaskLists} currentDate={props.currentDate} getDateDiff={props.getDateDiff} setTaskListFormData={setTaskListFormData} />
-            <TaskListsTitle diff={diff} getDateDiff={props.getDateDiff} other={props.other} currentTaskLists={currentTaskLists} />
-            <TaskLists errMsg={err.errMsg} errSubMsg={err.errSubMsg} allTasks={props.allTasks} startDate={currentTaskLists.theme === "date" ? currentTaskLists.from : props.getDateDiff(diff.len > 0 ? diff.len : diff.len * currentTaskLists.days)} endDate={currentTaskLists.theme === "date" ? currentTaskLists.to : props.getDateDiff(diff.len > 0 ? currentTaskLists.days * diff.len :  diff.len)} getAllTasks={props.getAllTasks} currentDate={props.currentDate} show={false}  />
+            <DashboardSectTitle mode={props.mode} title={`${props.other.charAt(0).toUpperCase() + props.other.slice(1)} Tasks`} />
+            <OtherTaskListsForm mode={props.mode} other={props.other} taskListFormData={taskListFormData} changeTaskListFormData={changeTaskListFormData} changeCurrentTaskLists={changeCurrentTaskLists} currentDate={props.currentDate} getDateDiff={props.getDateDiff} setTaskListFormData={setTaskListFormData} />
+            <TaskListsTitle mode={props.mode} diff={diff} getDateDiff={props.getDateDiff} other={props.other} currentTaskLists={currentTaskLists} />
+            <TaskLists mode={props.mode} errMsg={err.errMsg} errSubMsg={err.errSubMsg} allTasks={props.allTasks} startDate={currentTaskLists.theme === "date" ? currentTaskLists.from : props.getDateDiff(diff.len > 0 ? diff.len : diff.len * currentTaskLists.days)} endDate={currentTaskLists.theme === "date" ? currentTaskLists.to : props.getDateDiff(diff.len > 0 ? currentTaskLists.days * diff.len :  diff.len)} getAllTasks={props.getAllTasks} currentDate={props.currentDate} show={false}  />
         </div>
     </>
   )

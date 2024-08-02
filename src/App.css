@@ -54,3 +54,14 @@
 
 }
 
+.input-dark::placeholder {
+  color: white;
+}
+
+.date-dark {
+  color-scheme: dark;
+}
+
+.accordion-dark::after {
+  filter: brightness(100%) invert(100%);
+}

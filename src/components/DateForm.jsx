@@ -15,8 +15,8 @@ const DateForm = (props) => {
   return (
     <>
       <div className="col-auto d-flex flex-column flex-md-row justify-content-center align-items-center m-0" style={{gap:"10px"}}>
-        <DateInput label="From" name="from" min={props.other === "upcoming" ? min : undefined} max={props.other === "previous" ? max : undefined} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} />
-        <DateInput label="To" name="to" min={props.taskListFormData.from !== "" ? props.taskListFormData.from : undefined} max={props.other === "previous" ? (max) : undefined} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} setTaskListFormData={props.setTaskListFormData} />
+        <DateInput mode={props.mode} label="From" name="from" min={props.other === "upcoming" ? min : undefined} max={props.other === "previous" ? max : undefined} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} />
+        <DateInput mode={props.mode} label="To" name="to" min={props.taskListFormData.from !== "" ? props.taskListFormData.from : undefined} max={props.other === "previous" ? (max) : undefined} taskListFormData={props.taskListFormData} changeTaskListFormData={props.changeTaskListFormData} setTaskListFormData={props.setTaskListFormData} />
       </div>
     </>
   )

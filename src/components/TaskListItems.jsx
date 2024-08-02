@@ -12,10 +12,10 @@ const TaskListItems = (props) => {
     <>
         {
             props.taskList.tasks.map((task) => {
-              return (<TaskListItem getAllTasks={props.getAllTasks} key={task.id} task={task} renderBtns={renderBtns()} />)
+              return (<TaskListItem mode={props.mode} getAllTasks={props.getAllTasks} key={task.id} task={task} renderBtns={renderBtns()} />)
             })
         }
-        <AddTaskBtn id={props.taskList.id} getAllTasks={props.getAllTasks} renderBtns={renderBtns()} />
+        <AddTaskBtn mode={props.mode} id={props.taskList.id} getAllTasks={props.getAllTasks} renderBtns={renderBtns()} />
     </>
   );
 }

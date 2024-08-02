@@ -29,8 +29,8 @@ const AddTaskBtn = (props) => {
     props.renderBtns && 
     <>
         <form className="container-xxl px-3 addTaskBtn list-group-item d-flex justify-content-center my-2" style={{gap: "10px"}}>
-            <input className="form-control me-1" value={addTaskFormData.title} name="title" onChange={(event) => {handleChange(event)}} type="text" placeholder="Eg: Buy Groceries" aria-label="default input example" required />
-            <span className="align-self-center">{titleLength}/15</span>
+            <input className={`form-control me-1 ${props.mode === "dark" && " text-white input-dark bg-dark"}`} value={addTaskFormData.title} name="title" onChange={(event) => {handleChange(event)}} type="text" placeholder="Eg: Buy Groceries" aria-label="default input example" required />
+            <span className={`align-self-center ${props.mode === "dark" && "text-white"}`}>{titleLength}/15</span>
             <button onClick={disable ? null : addTask} title="Add Task" className={`btn btn-primary ms-1 rounded-circle d-flex justify-content-center align-items-center my-auto ${disable && "opacity-75"}`}><b>+</b></button>
         </form>
     </>

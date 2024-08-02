@@ -29,7 +29,7 @@ const TaskListItem = (props) => {
                   </> 
                   : 
                   <>
-                    <Task task={props.task} getAllTasks={props.getAllTasks} renderBtns={props.renderBtns} />
+                    <Task mode={props.mode} task={props.task} getAllTasks={props.getAllTasks} renderBtns={props.renderBtns} />
                     {props.renderBtns && <EditDeleteTask deleteTask={deleteTask} toggleEditMode={toggleEditMode} editMode={editMode} />}
                   </>}
             </div>

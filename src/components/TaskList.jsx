@@ -8,10 +8,10 @@ const TaskList = (props) => {
     <>
       <div className="container-md my-4">
         <div className="accordion" id="accordionPanelsStayOpenExample">
-          <div className="accordion-item">
-            <TaskListHeader taskList={props.taskList} show={props.show} />
+          <div className={`accordion-item bg-${props.mode}`}>
+            <TaskListHeader mode={props.mode} taskList={props.taskList} show={props.show} />
             <div id={`panelsStayOpen-collapse${props.taskList.id}`} className={`accordion-collapse collapse ${props.show && "show"}`} aria-labelledby="panelsStayOpen-headingOne">
-              <TaskListItems getAllTasks={props.getAllTasks} currentDate={props.currentDate} taskList={props.taskList} />
+              <TaskListItems mode={props.mode} getAllTasks={props.getAllTasks} currentDate={props.currentDate} taskList={props.taskList} />
             </div>      
           </div>
         </div>

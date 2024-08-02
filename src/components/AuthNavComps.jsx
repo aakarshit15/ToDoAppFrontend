@@ -11,7 +11,7 @@ const AuthNavComps = (props) => {
         <div className={`collapse navbar-collapse`} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <NavLinkList changeUserLayout={props.changeUserLayout} link="Dashboard" />
-                {/* <NavLinkList changeUserLayout={props.changeUserLayout} link="Analysis" /> */}
+                <NavLinkList changeUserLayout={props.changeUserLayout} link="Analysis" />
                 <NavLinkList changeUserLayout={props.changeUserLayout} link="Profile" />
             </ul>
             <ModeToggler toggleMode={props.toggleMode} mode={props.mode} />
