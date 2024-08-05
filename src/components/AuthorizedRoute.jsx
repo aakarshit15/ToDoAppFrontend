@@ -51,7 +51,7 @@ const AuthorizedRoute = (props) => {
   return (
     <>
           <Routes>
-              <Route path="/user/" element={<Template changeUserLayout={props.changeUserLayout} user={props.user} mode={props.mode} toggleMode={props.toggleMode} />}>
+              <Route path="/user/" element={<Template changeUserLayout={props.changeUserLayout} user={props.user} mode={props.mode} toggleMode={props.toggleMode} changeUser={props.changeUser} />}>
                 <Route exact="true" path="dashboard" element={<Dashboard getDateDiff={getDateDiff} getFullDate={getFullDate} getAllTasks={getAllTasks} allTasks={allTasks} currentDate={currentDate} changeUser={props.changeUser} mode={props.mode} user={props.user} />} />
                 <Route exact path="analysis" element={<Analysis mode={props.mode} user={props.user} />} />
                 <Route exact="true" path="profile" element={<Profile mode={props.mode} user={props.user} changeUser={props.changeUser} />} />

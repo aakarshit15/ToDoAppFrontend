@@ -8,12 +8,14 @@ const TaskLists = (props) => {
 
   const changeRequiredTaskLists = () => {
     let newTaskList = [];
-    for(let i=0; i<props.allTasks.length; i++) {
-      if(((new Date(props.startDate)) <= (new Date(props.allTasks[i].list_date))) && ((new Date(props.endDate)) >= (new Date(props.allTasks[i].list_date)))) {
-        newTaskList.push(props.allTasks[i]);
+    if(props.allTasks) {
+      for(let i=0; i<props.allTasks.length; i++) {
+        if(((new Date(props.startDate)) <= (new Date(props.allTasks[i].list_date))) && ((new Date(props.endDate)) >= (new Date(props.allTasks[i].list_date)))) {
+          newTaskList.push(props.allTasks[i]);
+        }
       }
+      setRequiredTaskLists(newTaskList);
     }
-    setRequiredTaskLists(newTaskList);
   }
   
   useEffect(() => {

@@ -14,7 +14,7 @@ const AuthNavComps = (props) => {
                 <NavLinkList changeUserLayout={props.changeUserLayout} link="Analysis" />
                 <NavLinkList changeUserLayout={props.changeUserLayout} link="Profile" />
             </ul>
-            <ModeToggler toggleMode={props.toggleMode} mode={props.mode} />
+            <ModeToggler user={props.user} changeUser={props.changeUser} toggleMode={props.toggleMode} mode={props.mode} />
         </div>
     </>
   )

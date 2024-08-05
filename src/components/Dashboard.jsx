@@ -6,12 +6,6 @@ import OtherTaskLists from './OtherTaskLists';
 
 const Dashboard = (props) => {
 
-  const handleLogOut = async (event) => {
-    event.preventDefault();
-    const response = await axios.post('/api/logout');
-    props.changeUser(response.data);
-  }
-
   return (
     <>
       <TodaysTasks currentDate={props.currentDate} allTasks={props.allTasks} getAllTasks={props.getAllTasks} mode={props.mode} />
